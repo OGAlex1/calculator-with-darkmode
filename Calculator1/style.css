@@ -3,23 +3,34 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  height: 100%;
+}
 
 body {
-  background-color: #ff5722;
+  background-color: #2e1107;
   display: grid;
   place-items: center;
-  padding: 5%;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .box {
-  background-color: red;
+  background-color: #e3e7f2;
   border-radius: 30px;
   width: 100%;
+  height: 700px;
   max-width: 450px;
   font-family: Arial, Helvetica, sans-serif;
   padding: 15px;
   margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  padding-top: 70px;
 }
 
 #display {
@@ -29,14 +40,14 @@ body {
   max-width: 300px;
   height: 70px;
   border: none;
-  margin: 50px;
-  background-color: rgb(255, 0, 0);
-  box-shadow: 0px 0px 15px 2px rgb(118, 4, 4);
-  color: aliceblue;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  background-color: #e5e5f1;
+  box-shadow: 0px 0px 15px 2px #333743;
+  color: black;
   font-size: 30px;
   font-weight: 500;
   text-align: right;
-
   padding-right: 45px;
   overflow-x: auto;
   white-space: nowrap;
@@ -45,85 +56,125 @@ body {
 button {
   border: none;
   border-radius: 50px;
-  width: 80%;
-  max-width: 60px;
-  height: 60px;
-  background-color: rgb(255, 0, 0);
-  box-shadow: 0px 0px 15px 2px rgb(118, 4, 4);
+  width: 90%;
+  max-width: 70px;
+  height: 70px;
+  background-color: #e5e5f1;
+  box-shadow: 0px 0px 15px 2px #333743;
   cursor: pointer;
-  color: white;
+  color: black;
   display: grid;
   justify-content: center;
   align-items: center;
-  text-align: right;
+  text-align: center;
   font-size: 25px;
   font-weight: 500;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.box .keys {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  row-gap: 20px;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
+}
+
 button:hover {
-  background-color: rgb(255, 58, 58);
+  background-color: #cac8c8;
 }
 
 button:active {
-  background-color: rgb(255, 121, 121);
+  background-color: #e3e0e0;
 }
 
 button .equal {
   display: grid;
-  justify-content: center;
-  align-items: center;
+  place-items: center;
 }
 
-.keys {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+#switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  row-gap: 20px;
 
-  padding-left: 20px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+  background-color: #333743;
+}
+#switch img:last-child {
+  display: none;
+}
+.darkmode #switch img:first-child {
+  display: none;
+}
+.darkmode #switch img:last-child {
+  display: block;
 }
 
-@media (max-width: 1024px) {
-  body {
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+/* Dark mode styles */
+body.darkmode {
+  background-color: #111;
+}
 
-  .box {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    border-radius: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+body.darkmode .box {
+  background-color: #333743;
+}
 
-  #display {
-    width: 90%;
-    height: 10vh;
-    margin: 2vh 0;
-    font-size: 5vh;
-  }
+body.darkmode #display {
+  background-color: #222;
+  color: #fff;
+  box-shadow: 0 0 10px #000;
+}
 
-  .keys {
-    width: 90%;
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1vh;
-  }
+body.darkmode button {
+  background-color: #333c4d;
+  color: #fff;
+  box-shadow: 0 0 10px #000;
+}
 
-  .keys button {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    font-size: 4vh;
-  }
+body.darkmode button:hover {
+  background-color: #777;
+}
+body.darkmode button:active {
+  background-color: #acacac;
+}
+
+body.darkmode .buttonorgn {
+  background-color: #db7c1e;
+}
+body.darkmode .buttonorgn:hover {
+  background-color: #fc8713;
+}
+
+body.darkmode .buttonorgn:active {
+  background-color: #ffa449;
+}
+/* button color and hover */
+#buttongrey {
+  background-color: #61697e;
+}
+#buttongrey:hover {
+  background-color: #7d879a;
+}
+#buttongrey:active {
+  background-color: #c0c7d4;
+}
+
+.buttonorgn {
+  background-color: #d97b19;
+}
+
+.buttonorgn:hover {
+  background-color: #ff982a;
+}
+.buttonorgn:active {
+  background-color: #f18109;
 }

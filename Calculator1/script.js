@@ -22,3 +22,9 @@ buttons.forEach((button) => {
     display.scrollLeft = display.scrollWidth;
   });
 });
+
+// Dark mode toggle
+const switchBtn = document.getElementById("switch");
+switchBtn.addEventListener("click", () => {
+  document.body.classList.toggle("darkmode");
+});
